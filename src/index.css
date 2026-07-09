@@ -1,5 +1,6 @@
 :root{
   --bg: #0B0E14;
+  --bg-rgb: 11, 14, 20;
   --surface: #141922;
   --surface-2: #1B222E;
   --border: #262D3A;
@@ -25,6 +26,7 @@
 
 [data-theme="light"]{
   --bg: #F7F8FA;
+  --bg-rgb: 247, 248, 250;
   --surface: #FFFFFF;
   --surface-2: #F0F2F5;
   --border: #E3E7EB;
@@ -86,7 +88,7 @@ a:focus-visible, button:focus-visible{ outline: 2px solid var(--blue); outline-o
 /* ================= NAV ================= */
 nav{
   position: sticky; top: 0;
-  background: rgba(11,14,20,0.85);
+  background: rgba(var(--bg-rgb), 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   z-index: 20;
@@ -95,6 +97,7 @@ nav .nav-inner{
   display: flex; align-items: center; justify-content: space-between;
   height: 68px; gap: 16px; position: relative;
 }
+.nav-left{ display: flex; align-items: center; gap: 14px; }
 .nav-id{ display: flex; flex-direction: column; line-height: 1.25; }
 .nav-id .name{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--text); }
 .nav-id .tagline{ font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); }
@@ -146,13 +149,13 @@ nav .nav-inner{
 /* ================= THEME TOGGLE ================= */
 .theme-toggle{
   display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 50%;
+  width: 42px; height: 42px; border-radius: 50%;
   border: 1px solid var(--border); background: var(--surface);
   color: var(--text-muted); cursor: pointer; flex-shrink: 0;
   transition: border-color .15s ease, color .15s ease, transform .15s ease;
 }
 .theme-toggle:hover{ border-color: var(--amber); color: var(--amber); transform: rotate(15deg); }
-.theme-toggle svg{ width: 17px; height: 17px; }
+.theme-toggle svg{ width: 20px; height: 20px; }
 .mobile-menu .theme-toggle-row{
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 24px; border-bottom: 1px solid var(--border);

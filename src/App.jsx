@@ -195,9 +195,12 @@ export default function App() {
     <>
       <nav>
         <div className="wrap nav-inner">
-          <div className="nav-id">
-            <span className="name">Usha Nagula</span>
-            <span className="tagline">Cloud Engineer • DevOps • GCP/AWS/K8s</span>
+          <div className="nav-left">
+            <ThemeToggle theme={theme} onToggle={toggleTheme} />
+            <div className="nav-id">
+              <span className="name">Usha Nagula</span>
+              <span className="tagline">Cloud Engineer • Software Engineer</span>
+            </div>
           </div>
           <ul className="nav-center">
             {navItems.map((item) => (
@@ -219,14 +222,9 @@ export default function App() {
               ↓ Resume
             </a>
           </div>
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
           <NavToggle open={mobileOpen} onClick={() => setMobileOpen((v) => !v)} />
         </div>
         <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
-          <div className="theme-toggle-row">
-            <span>Theme: {theme === 'dark' ? 'Dark' : 'Light'}</span>
-            <ThemeToggle theme={theme} onToggle={toggleTheme} />
-          </div>
           {navItems.map((item) => (
             <a key={item.id} href={`#${item.id}`} onClick={() => setMobileOpen(false)}>
               {item.label}
@@ -246,7 +244,7 @@ export default function App() {
 
       <header className="hero">
         <div className="wrap">
-          <div className="eyebrow-badge">Open to Cloud Engineer • DevOps roles</div>
+          <div className="eyebrow-badge">Open to Cloud Developer • Site Reliability • Software Engineer roles</div>
           <h1>
             Hi, I'm <span className="gradient-text">Usha Nagula</span>.
           </h1>

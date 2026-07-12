@@ -102,62 +102,7 @@ function NavToggle({ open, onClick }) {
   );
 }
 
-function useTheme() {
-  const [theme, setTheme] = useState(() => {
-    try {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark' || saved === 'light') return saved;
-    } catch {
-      /* localStorage unavailable (e.g. private browsing) — fall through to system preference */
-    }
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    try {
-      localStorage.setItem('theme', theme);
-    } catch {
-      /* ignore — theme just won't persist across reloads */
-    }
-  }, [theme]);
-
-  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
-  return [theme, toggleTheme];
-}
-
-function SunIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    </svg>
-  );
-}
-
-function ThemeToggle({ theme, onToggle }) {
-  return (
-    <button
-      className="theme-toggle"
-      onClick={onToggle}
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-    >
-      {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-    </button>
-  );
-}
-
 export default function App() {
-  const [theme, toggleTheme] = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeSection, setActiveSection] = useState('about');
@@ -196,7 +141,6 @@ export default function App() {
       <nav>
         <div className="wrap nav-inner">
           <div className="nav-left">
-            <ThemeToggle theme={theme} onToggle={toggleTheme} />
             <div className="nav-id">
               <span className="name">Usha Nagula</span>
               <span className="tagline">Cloud Engineer • Software Engineer</span>
@@ -244,7 +188,7 @@ export default function App() {
 
       <header className="hero">
         <div className="wrap">
-          <div className="eyebrow-badge">Open to Cloud Developer • Site Reliability • Software Engineer roles</div>
+          <div className="eyebrow-badge">Open to Cloud Engineer • Site Reliability Engineer • DevOps roles</div>
           <h1>
             Hi, I'm <span className="gradient-text">Usha Nagula</span>.
           </h1>

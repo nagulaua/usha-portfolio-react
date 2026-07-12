@@ -7,21 +7,6 @@
   <meta name="description" content="Cloud Engineer specializing in GCP, AWS, Kubernetes, and Infrastructure as Code." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script>
-    // Set the theme attribute before React mounts / CSS paints, so there's no
-    // flash of the wrong theme on load. Kept in sync with useTheme() in App.jsx.
-    (function () {
-      try {
-        var saved = localStorage.getItem('theme');
-        var theme = saved === 'dark' || saved === 'light'
-          ? saved
-          : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
 </head>
 <body>
   <div id="root"></div>
